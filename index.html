@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script>
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib";;analytics.SNIPPET_VERSION="4.15.3";
+        analytics.load("UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib");
+        analytics.page();
+        }}();
+        
+        function identifyUser() {
+            var userId = "";
+
+            if (document.getElementById("userid").value==4) {
+                userId = crypto.randomUUID();
+            } else {
+                userId = document.getElementById("userid").value;
+            }
+
+            analytics.identify(userId, {
+                email: document.getElementById("email").value,
+                plan: document.getElementById("plan").value
+            });
+
+            alert("Identify event triggered")
+        }
+    </script>
+</head>
+    
+<body>
+    <h1>Segment test page voliveira</h1>
+
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label for="fname" >email:</label>
+                </td>
+                <td>
+                    <input type="text" id="email"><br><br>
+                </td>
+                <td>
+                    <button type="button" onclick="identifyUser()">Identify</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fname" >plan:</label>
+                </td>
+                <td>
+                    <select name="plan" id="plan">
+                        <option value="annual">Annual</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="weekly">Weekly</option>
+                      </select>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fname" >userid:</label>
+                </td>
+                <td>
+                    <select name="userid" id="userid">
+                        <option value="e96c0c6d-1e7a-4dfc-a5f0-999477db1e94">#1 - e96c0c6d</option>
+                        <option value="19e8f24b-9277-4dd8-aa16-9d57f010d3e7">#2 - 19e8f24b</option>
+                        <option value="9003869f-bf53-4030-a123-f2619e081f73">#3 - 9003869f</option>
+                        <option value="4">generate new one</option>
+                      </select>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+  
