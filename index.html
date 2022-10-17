@@ -26,7 +26,8 @@
         function trackButtonClicked() {
         
             analytics.track('Button Clicked', {
-                email: document.getElementById("email").value
+                email: document.getElementById("email").value,
+                plan: document.getElementById("plan").value
             });
 
             alert("Button clicked triggered!!")
