@@ -23,14 +23,24 @@
             alert("Identify event triggered!!")
         }
 
-        function trackAction(eventName) {
+        function trackButtonClicked() {
         
-            analytics.track('Button clicked', {
+            analytics.track('Button Clicked', {
                 email: document.getElementById("email").value
             });
 
-            alert("Identify event triggered!!")
+            alert("Button clicked triggered!!")
         }
+
+        function trackBuyProduct() {
+        
+        analytics.track('Buy Product', {
+            email: document.getElementById("email").value,
+            productId: "123abc456"
+        });
+
+        alert("Buy product triggered!!")
+    }
 
        
     </script>
@@ -50,7 +60,8 @@
                 </td>
                 <td>
                     <button type="button" onclick="identifyUser()">Identify</button>
-                    <button type="button" onclick="trackAction('button clicked')">Button clicked</button>
+                    <button type="button" onclick="trackButtonClicked()">Button clicked</button>
+                    <button type="button" onclick="trackBuyProduct()">Buy product</button>
                 </td>
             </tr>
             <tr>
