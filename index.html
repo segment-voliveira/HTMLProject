@@ -22,6 +22,17 @@
 
             alert("Identify event triggered!!")
         }
+
+        function trackAction(eventName) {
+        
+            analytics.track('Button clicked', {
+                email: document.getElementById("email").value
+            });
+
+            alert("Identify event triggered!!")
+        }
+
+       
     </script>
 </head>
     
@@ -39,6 +50,7 @@
                 </td>
                 <td>
                     <button type="button" onclick="identifyUser()">Identify</button>
+                    <button type="button" onclick="trackAction('button clicked')">Button clicked</button>
                 </td>
             </tr>
             <tr>
