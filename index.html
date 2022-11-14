@@ -2,10 +2,17 @@
 <head>
     <script>
         !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib";;analytics.SNIPPET_VERSION="4.15.3";
+
         analytics.load("UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib");
+
+        /*const url = "https://cdn.segment.com/v1/projects/UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib/integrations";
+        var res="";
+        fetch(url).then( res => res.json() ).then((data) => alert(JSON.stringify(data)));*/
+                
         analytics.page();
-        }}();
         
+        }}();
+
         function identifyUser() {
             var userId = "";
 
@@ -35,13 +42,20 @@
 
         function trackBuyProduct() {
         
-        analytics.track('Buy Product', {
-            email: document.getElementById("email").value,
-            productId: "123abc456"
-        });
+            analytics.track('Buy Product', {
+                email: document.getElementById("email").value,
+                productId: "123abc456"
+            });
 
-        alert("Buy product triggered!!")
+            alert("Buy product triggered!!")
     }
+
+    function sendTrack() {
+        var eventName = document.getElementById("event_name").value;
+        analytics.track(eventName);
+
+        alert(eventName + " triggered!!");
+}
 
        
     </script>
@@ -94,6 +108,29 @@
                 <td>
                 </td>
             </tr>
+        </table>
+    </div>
+</body>
+
+<hr class="dashed">
+
+<body>
+    <h1>Custom events - track()</h1>
+
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label for="fname" >Event:</label>
+                </td>
+                <td>
+                    <input type="text" id="event_name"><br><br>
+                </td>
+                <td>
+                    <button type="button" onclick="sendTrack()">Send event</button>
+                </td>
+            </tr>
+            
         </table>
     </div>
 </body>
