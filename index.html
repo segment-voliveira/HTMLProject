@@ -27,7 +27,8 @@
 
             analytics.identify(userId, {
                 email: document.getElementById("email").value,
-                plan: document.getElementById("plan").value
+                plan: document.getElementById("plan").value,
+                country:document.getElementById("country").value
             });
 
             alert("Identify event triggered!!")
@@ -105,8 +106,18 @@
                         <option value="e96c0c6d-1e7a-4dfc-a5f0-999477db1e94">#1 - e96c0c6d</option>
                         <option value="19e8f24b-9277-4dd8-aa16-9d57f010d3e7">#2 - 19e8f24b</option>
                         <option value="9003869f-bf53-4030-a123-f2619e081f73">#3 - 9003869f</option>
-                        <option value="4">generate new one</option>
+                        <option selected value="4">generate new one</option>
                       </select>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fname" >country:</label>
+                </td>
+                <td>
+                    <input type="text" id="country"><br><br>
                 </td>
                 <td>
                 </td>
