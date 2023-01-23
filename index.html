@@ -13,11 +13,14 @@
         
         }}();
 
+        var newUserId = "" ;
+        newUserId=crypto.randomUUID();
+
         function identifyUser() {
             var userId = "";
 
             if (document.getElementById("userid").value==4) {
-                userId = crypto.randomUUID();
+                userId = newUserId;
             } else {
                 userId = document.getElementById("userid").value;
             }
