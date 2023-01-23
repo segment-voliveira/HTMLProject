@@ -28,7 +28,9 @@
             analytics.identify(userId, {
                 email: document.getElementById("email").value,
                 plan: document.getElementById("plan").value,
-                country:document.getElementById("country").value
+                country:document.getElementById("country").value,
+                firstName:document.getElementById("firstName").value,
+                lastName:document.getElementById("lastName").value
             });
 
             alert("Identify event triggered!!")
@@ -109,17 +111,29 @@
                         <option selected value="4">generate new one</option>
                       </select>
                 </td>
+            </tr>
+            <tr>
                 <td>
+                    <label for="fname" >first name:</label>
+                </td>
+                <td>
+                    <input type="text" id="firstName">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="fname" >country:</label>
+                    <label for="lname" >last name:</label>
                 </td>
                 <td>
-                    <input type="text" id="country"><br><br>
+                    <input type="text" id="lastName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="country" >country:</label>
                 </td>
                 <td>
+                    <input type="text" id="country">
                 </td>
             </tr>
         </table>
