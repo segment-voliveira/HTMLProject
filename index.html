@@ -98,43 +98,41 @@
 }
 
 function getGA4IdsFromCookies() {
-  // Get the document's cookies
-  var cookies = document.cookie.split(';');
-  
-  // Variables to store the GA4 client_id and session_id
-  var clientId = null;
-  var sessionId = null;
+    // Get the document's cookies
+    var cookies = document.cookie.split(';');
 
-  // Loop through the cookies and find the GA4 cookies
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i].trim();
-    
-    // Check if the cookie starts with "_ga" (GA4 client_id cookie)
-    if (cookie.indexOf('_ga') === 0) {
-      var cookieParts = cookie.split('.');
-      clientId = cookieParts[2] + '.' + cookieParts[3];
-    }
-    
-    // Check if the cookie starts with "_gid" (GA4 session_id cookie)
-    if (cookie.indexOf('_gid') === 0) {
-      var cookieParts = cookie.split('.');
-      sessionId = cookieParts[2];
+    // Variables to store the GA4 client_id and session_id
+    var clientId = null;
+    var sessionId = null;
+    var sessionNumber = null;
+
+    // Loop through the cookies and find the GA4 cookies
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+
+        // Check if the cookie starts with "_ga" (GA4 client_id cookie)
+        if (cookie.indexOf('_ga') === 0) {
+            var cookieParts = cookie.split('.');
+            clientId = cookieParts[2] + '.' + cookieParts[3];
+        }
+
+        // Check if the cookie starts with "_gid" (GA4 session_id cookie)
+        if (cookie.indexOf('_ga_3SHG5N995E') === 0) {
+            var cookieParts = cookie.split('.');
+            sessionId = cookieParts[2];
+            sesionNumber = cookieParts[3];
+        }
+
+
     }
 
-    // Use your own ID here ↓
-	const pattern = /_ga_3SHG5N995E=GS\d\.\d\.(.+?)(?:;|$)/;
-	const match = document.cookie.match(pattern);
-	const parts = match?.[1].split(".");
-  }
-  
-  // Return an object containing the client_id and session_id
-  return {
-    client_id: clientId,
-    ga_session_id: parts.shift(),
-	ga_session_number: parts.shift(),
-  };
+    // Return an object containing the client_id and session_id
+    return {
+        client_id: clientId,
+        session_id: sessionId,
+        session_number: sesionNumber
+    };
 }
-       
     </script>
 </head>
     
