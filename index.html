@@ -97,41 +97,36 @@
         alert(eventName + " triggered!!");
 }
 
-function getGA4IdsFromCookies() {
-    // Get the document's cookies
-    var cookies = document.cookie.split(';');
-
-    // Variables to store the GA4 client_id and session_id
-    var clientId = null;
-    var sessionId = null;
-    var sessionNumber = null;
-
-    // Loop through the cookies and find the GA4 cookies
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-
-        // Check if the cookie starts with "_ga" (GA4 client_id cookie)
-        if (cookie.indexOf('_ga') === 0) {
-            var cookieParts = cookie.split('.');
-            clientId = cookieParts[2] + '.' + cookieParts[3];
-        }
-
-        // Check if the cookie starts with "_gid" (GA4 session_id cookie)
-        if (cookie.indexOf('_ga_3SHG5N995E') === 0) {
-            var cookieParts = cookie.split('.');
-            sessionId = cookieParts[2];
-            sesionNumber = cookieParts[3];
-        }
+function getClientId() {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; _ga=`);
+  if (parts.length === 2) {
+    var cookieParts = parts.pop().split(';').shift().split('.');
+    return clientId = cookieParts[2] + '.' + cookieParts[3];
+  }
+      
+}
 
 
-    }
+function getSessionId() {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; _ga_3SHG5N995E=`);
+  if (parts.length === 2) {
+    var cookieParts = parts.pop().split(';').shift().split('.');
+    return clientId = cookieParts[2] ;
+  }
+      
+}
 
-    // Return an object containing the client_id and session_id
-    return {
-        client_id: clientId,
-        session_id: sessionId,
-        session_number: sesionNumber
-    };
+
+function getSessionNumber() {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; _ga_3SHG5N995E=`);
+  if (parts.length === 2) {
+    var cookieParts = parts.pop().split(';').shift().split('.');
+    return clientId = cookieParts[3] ;
+  }
+      
 }
     </script>
 </head>
