@@ -97,20 +97,36 @@
         alert(eventName + " triggered!!");
 }
 
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
+function getGA4IdsFromCookies() {
+  // Get the document's cookies
+  var cookies = document.cookie.split(';');
+  
+  // Variables to store the GA4 client_id and session_id
+  var clientId = null;
+  var sessionId = null;
+
+  // Loop through the cookies and find the GA4 cookies
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    
+    // Check if the cookie starts with "_ga" (GA4 client_id cookie)
+    if (cookie.indexOf('_ga') === 0) {
+      var cookieParts = cookie.split('.');
+      clientId = cookieParts[2] + '.' + cookieParts[3];
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
+    
+    // Check if the cookie starts with "_gid" (GA4 session_id cookie)
+    if (cookie.indexOf('_gid') === 0) {
+      var cookieParts = cookie.split('.');
+      sessionId = cookieParts[2];
     }
   }
-  return "";
+  
+  // Return an object containing the client_id and session_id
+  return {
+    client_id: clientId,
+    session_id: sessionId
+  };
 }
        
     </script>
