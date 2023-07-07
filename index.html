@@ -132,7 +132,7 @@ function getSessionNumber() {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; _fbp=`);
   if (parts.length === 2) {
-    return parts.pop().split(';');
+    return parts.pop().split(';')[0];
     
   }}
       
