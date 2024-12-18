@@ -41,6 +41,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const url = "https://cdn.segment.com/v1/projects/UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib/integrations";
         var res="";
         fetch(url).then( res => res.json() ).then((data) => alert(JSON.stringify(data)));*/
+
+        const sendToWebHook = function ({ payload, integration, next }) {
+          fetch('https://171ae51b-a02e-489b-b58c-c0fc85fa49ec.mock.pstmn.io/segtest', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: payload,
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => console.log('Success:', data))
+        .catch(error => console.error('Error:', error));
+          next(payload);
+        };
+
+        analytics.addSourceMiddleware(sendToWebHook);
                 
         var newUserId = "" ;
         newUserId=crypto.randomUUID();
