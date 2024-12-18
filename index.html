@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         fetch(url).then( res => res.json() ).then((data) => alert(JSON.stringify(data)));*/
 
         const sendToWebHook = function ({ payload, integration, next }) {
-          fetch('https://171ae51b-a02e-489b-b58c-c0fc85fa49ec.mock.pstmn.io/segtest', {
+          fetch('https://fn.segmentapis.com/?b=aENIalhGZGFqRktaZzk1QkhXZURQNjo6b1lCdTJSY2d5SURyQVVXNXhEbk9XOWhFRkhwZk0yQXk=', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
