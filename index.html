@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           headers: {
             'Content-Type': 'application/json',
           },
-          body: payload,
+          body: JSON.stringify(payload),
         })
         .then(response => {
           if (!response.ok) {
