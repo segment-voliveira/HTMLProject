@@ -1,0 +1,19 @@
+{
+  "name": "htmlproject",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "dev": "parcel src/index.html",
+     "build": "parcel build src/index.html --dist-dir docs --public-url ./"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
