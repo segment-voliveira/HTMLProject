@@ -18,6 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   analytics.load("UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib");
   analytics.page();
   }}();
+
 </script>
 
     
@@ -27,6 +28,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   analytics.load("nSO3wSGBMI51gGzYEv91ZDwjtOA0Ovf6");
   analytics.page();
   }}();
+
 </script>
     <!-->
     
@@ -41,6 +43,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const url = "https://cdn.segment.com/v1/projects/UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib/integrations";
         var res="";
         fetch(url).then( res => res.json() ).then((data) => alert(JSON.stringify(data)));*/
+
+
+    const manipulateFBEvent = function({ payload, next, integration }) {
+        if (
+        (payload.type === 'track' && 
+        (payload.event === 'Followed Lot' || payload.event === 'Bid Placed')) || 
+        payload.type === 'page'
+    ) {
+        // Check if properties exist and itemId is present
+        if (payload.properties && payload.properties.itemId) {
+        // Rename itemId to content_id
+        payload.properties.content_id = payload.properties.itemId;
+        delete payload.properties.itemId; // Remove the original itemId
+        }
+    }
+    next(payload);
+    }
 
         const sendToWebHook = function ({ payload, integration, next }) {
           fetch('https://fn.segmentapis.com/?b=aENIalhGZGFqRktaZzk1QkhXZURQNjo6b1lCdTJSY2d5SURyQVVXNXhEbk9XOWhFRkhwZk0yQXk=', {
@@ -61,6 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           next(payload);
         };
 
+        analytics.addDestinationMiddleware('Facebook Pixel', manipulateFBEvent)
         analytics.addSourceMiddleware(sendToWebHook);
                 
         var newUserId = "" ;
