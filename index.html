@@ -47,15 +47,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     const manipulateFBEvent = function({ payload, next, integration }) {
         if (
-        (payload.type === 'track' && 
-        (payload.event === 'Followed Lot' || payload.event === 'Bid Placed')) || 
-        payload.type === 'page'
+        (payload.obj.type === 'track' && 
+        (payload.obj.event === 'Followed Lot' || payload.obj.event === 'Bid Placed')) || 
+        payload.obj.type === 'page'
     ) {
         // Check if properties exist and itemId is present
-        if (payload.properties && payload.properties.itemId) {
+        if (payload.obj.properties && payload.obj.properties.itemId) {
         // Rename itemId to content_id
-        payload.properties.content_id = payload.properties.itemId;
-        delete payload.properties.itemId; // Remove the original itemId
+        payload.obj.properties.content_id = payload.obj.properties.itemId;
+        delete payload.obj.properties.itemId; // Remove the original itemId
         }
     }
     next(payload);
