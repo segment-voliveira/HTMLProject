@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "dev": "parcel src/index.html",
-     "build": "parcel build src/index.html --dist-dir docs --public-url ./"
-    },
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --dist-dir docs --public-url ./"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "parcel": "^2.13.3"
   },
   "dependencies": {
+    "@segment/analytics-consent-tools": "^2.0.2",
     "lodash": "^4.17.21"
   }
 }

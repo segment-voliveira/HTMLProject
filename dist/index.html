@@ -1,1 +1,315 @@
-<html><head><script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script><script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="I89J-1khs60VMq" async></script><script>var e,t,a,g,m,n;e=window,t=document,a="script",e[g="dataLayer"]=e[g]||[],e[g].push({"gtm.start":new Date().getTime(),event:"gtm.js"}),m=t.getElementsByTagName(a)[0],(n=t.createElement(a)).async=!0,n.src="https://www.googletagmanager.com/gtm.js?id=GTM-PLG75QR",m.parentNode.insertBefore(n,m);</script><script>!function(){var e="analytics",t=window[e]=window[e]||[];if(!t.initialize){if(t.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{t.invoked=!0,t.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"],t.factory=function(i){return function(){if(window[e].initialized)return window[e][i].apply(window[e],arguments);var r=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(i)>-1){var n=document.querySelector("link[rel='canonical']");r.push({__t:"bpc",c:n&&n.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}return r.unshift(i),t.push(r),t}};for(var i=0;i<t.methods.length;i++){var r=t.methods[i];t[r]=t.factory(r)}t.load=function(i,r){var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.setAttribute("data-global-segment-analytics-key",e),n.src="https://cdn.segment.com/analytics.js/v1/"+i+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a),t._loadOptions=r},t._writeKey="UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib",t.SNIPPET_VERSION="5.2.0",t.load("UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib"),t.page()}}}();</script><script>analytics.addDestinationMiddleware("Facebook Pixel",function({payload:e,next:o,integration:t}){("track"===e.obj.type&&("Followed Lot"===e.obj.event||"Bid Placed"===e.obj.event)||"page"===e.obj.type)&&e.obj.properties&&e.obj.properties.itemId&&(e.obj.properties.content_id=e.obj.properties.itemId,delete e.obj.properties.itemId),o(e)});crypto.randomUUID();</script></head><body>  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLG75QR" height="0" width="0" style="visibility:hidden;display:none"></iframe></noscript>  <h1>Happy Dog 🐶</h1> <h2>Tell us about your Pet details and what subscription plan you're interested:</h2> <div> <table> <tr> <td> <label for="fname">Your email:</label> </td> <td> <input type="text" id="email"> </td> </tr> <tr> <td> <label for="fname">Subscription Plan:</label> </td> <td> <select name="plan" id="plan"> <option value="annual">Annual</option> <option value="monthly">Monthly</option> <option value="weekly">Weekly</option> </select> </td> <td> </td> </tr> <tr> <td> <label for="fname">Your first name:</label> </td> <td> <input type="text" id="firstName"> </td> </tr> <tr> <td> <label for="lname">Your last name:</label> </td> <td> <input type="text" id="lastName"> </td> </tr> <tr> <td> <label for="petname">Your Pet Name:</label> </td> <td> <input type="text" id="pet"> </td> </tr> <tr> <td> <button type="button" onclick="identifyUser()">Send form</button> </td> <td> <button type="button" onclick="trackButtonClicked()">Button clicked</button> </td> </tr> </table> </div> </body><hr class="dashed"></html>
+<html>
+<head>
+    <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
+    <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="I89J-1khs60VMq" async=""></script>
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-PLG75QR');
+
+</script>
+    <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        
+        
+
+   <!-- US workspace-->
+    <script>!function() {
+    var i = "analytics", analytics = window[i] = window[i] || [];
+    if (!analytics.initialize) {
+        if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+        else {
+            analytics.invoked = !0;
+            analytics.methods = [
+                "trackSubmit",
+                "trackClick",
+                "trackLink",
+                "trackForm",
+                "pageview",
+                "identify",
+                "reset",
+                "group",
+                "track",
+                "ready",
+                "alias",
+                "debug",
+                "page",
+                "screen",
+                "once",
+                "off",
+                "on",
+                "addSourceMiddleware",
+                "addIntegrationMiddleware",
+                "setAnonymousId",
+                "addDestinationMiddleware",
+                "register"
+            ];
+            analytics.factory = function(e) {
+                return function() {
+                    if (window[i].initialized) return window[i][e].apply(window[i], arguments);
+                    var n = Array.prototype.slice.call(arguments);
+                    if ([
+                        "track",
+                        "screen",
+                        "alias",
+                        "group",
+                        "page",
+                        "identify"
+                    ].indexOf(e) > -1) {
+                        var c = document.querySelector("link[rel='canonical']");
+                        n.push({
+                            __t: "bpc",
+                            c: c && c.getAttribute("href") || void 0,
+                            p: location.pathname,
+                            u: location.href,
+                            s: location.search,
+                            t: document.title,
+                            r: document.referrer
+                        });
+                    }
+                    n.unshift(e);
+                    analytics.push(n);
+                    return analytics;
+                };
+            };
+            for(var n = 0; n < analytics.methods.length; n++){
+                var key = analytics.methods[n];
+                analytics[key] = analytics.factory(key);
+            }
+            analytics.load = function(key, n) {
+                var t = document.createElement("script");
+                t.type = "text/javascript";
+                t.async = !0;
+                t.setAttribute("data-global-segment-analytics-key", i);
+                t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+                var r = document.getElementsByTagName("script")[0];
+                r.parentNode.insertBefore(t, r);
+                analytics._loadOptions = n;
+            };
+            analytics._writeKey = "UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib";
+            analytics.SNIPPET_VERSION = "5.2.0";
+            analytics.load("UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib");
+            analytics.page();
+        }
+    }
+}();
+
+</script>
+
+    
+    <!-- EU workspace --
+<script>
+  !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="nSO3wSGBMI51gGzYEv91ZDwjtOA0Ovf6";;analytics.SNIPPET_VERSION="5.2.0";
+  analytics.load("nSO3wSGBMI51gGzYEv91ZDwjtOA0Ovf6");
+  analytics.page();
+  }}();
+
+</script>
+    <!-->
+    
+    <script>/*const enrichAppcuesId = function ({ payload, integration, next }) {
+          payload.obj.userId = 'production_' + payload.obj.userId;
+          next(payload);
+        };/
+
+        //analytics.addDestinationMiddleware("Appcues", enrichAppcuesId);
+
+        const url = "https://cdn.segment.com/v1/projects/UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib/integrations";
+        var res="";
+        fetch(url).then( res => res.json() ).then((data) => alert(JSON.stringify(data)));*/ const manipulateFBEvent = function({ payload, next, integration }) {
+    if (payload.obj.type === 'track' && (payload.obj.event === 'Followed Lot' || payload.obj.event === 'Bid Placed') || payload.obj.type === 'page') // Check if properties exist and itemId is present
+    {
+        if (payload.obj.properties && payload.obj.properties.itemId) {
+            // Rename itemId to content_id
+            payload.obj.properties.content_id = payload.obj.properties.itemId;
+            delete payload.obj.properties.itemId; // Remove the original itemId
+        }
+    }
+    next(payload);
+};
+const sendToWebHook = function({ payload, integration, next }) {
+    fetch('https://fn.segmentapis.com/?b=aENIalhGZGFqRktaZzk1QkhXZURQNjo6b1lCdTJSY2d5SURyQVVXNXhEbk9XOWhFRkhwZk0yQXk=', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload.raw)
+    }).then((response)=>{
+        if (!response.ok) throw new Error('Network response was not ok ' + response.statusText);
+        return response.json();
+    }).then((data)=>console.log('Success:', data)).catch((error)=>console.error('Error:', error));
+    next(payload);
+};
+analytics.addDestinationMiddleware('Facebook Pixel', manipulateFBEvent);
+//analytics.addSourceMiddleware(sendToWebHook);
+var newUserId = "";
+newUserId = crypto.randomUUID();
+function identifyUser() {
+    var userId = "";
+    userId = newUserId;
+    analytics.identify(userId, {
+        email: document.getElementById("email").value,
+        plan: document.getElementById("plan").value,
+        petName: document.getElementById("pet").value,
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value
+    });
+    analytics.track("New pet registered", {
+        petName: document.getElementById("pet").value
+    });
+    alert("Thanks for sending the details. We will be in touch soon!");
+}
+function trackButtonClicked() {
+    analytics.track('Button Clicked', {
+        email: document.getElementById("email").value,
+        plan: document.getElementById("plan").value,
+        utm_campaign: 'gs_sn:-brand-ecpc',
+        ga_client: getClientId(),
+        ga_session: getSessionId(),
+        ga_snumber: getSessionNumber()
+    });
+    alert("Button clicked triggered!!");
+}
+function trackBuyProduct() {
+    analytics.track('Buy Product', {
+        email: document.getElementById("email").value,
+        productId: "123abc456"
+    });
+    alert("Buy product triggered!!");
+}
+function sendTrack() {
+    var eventName = document.getElementById("event_name").value;
+    analytics.track(eventName);
+    alert(eventName + " triggered!!");
+}
+function getClientId() {
+    /*const value = `; ${document.cookie}`;
+  const parts = value.split(`; _ga=`);
+  if (parts.length === 2) {
+    var cookieParts = parts.pop().split(';').shift().split('.');
+    return clientId = cookieParts[2] + '.' + cookieParts[3];
+  }*/ gtag("get", "G-3SHG5N995E", "client_id", (client_id)=>{
+        window.gtagClient2 = client_id;
+    });
+    return window.gtagClient2;
+}
+function getSessionId() {
+    /* const value = `; ${document.cookie}`;
+  const parts = value.split(`; _ga_3SHG5N995E=`);
+  if (parts.length === 2) {
+    var cookieParts = parts.pop().split(';').shift().split('.');
+    return clientId = cookieParts[2] ;
+  }*/ gtag("get", "G-3SHG5N995E", "session_id", (session_id)=>{
+        window.gtagSessionId2 = session_id;
+    });
+    return window.gtagSessionId2;
+}
+function getSessionNumber() {
+    /*const value = `; ${document.cookie}`;
+  const parts = value.split(`; _ga_3SHG5N995E=`);
+  if (parts.length === 2) {
+    var cookieParts = parts.pop().split(';').shift().split('.');
+    return clientId = cookieParts[3] ;
+  }*/ gtag("get", "G-3SHG5N995E", "session_number", (session_number)=>{
+        window.gtagSessionNr2 = session_number;
+    });
+    return window.gtagSessionNr2;
+}
+function getFbp() {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; _fbp=`);
+    if (parts.length === 2) return parts.pop().split(';')[0];
+}
+
+</script>
+</head>
+    
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLG75QR" height="0" width="0" style="visibility: hidden; display: none"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <h1>Happy Dog 🐶</h1>
+    <h2>Tell us about your Pet details and what subscription plan you're interested:</h2>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label for="fname">Your email:</label>
+                </td>
+                <td>
+                    <input type="text" id="email">
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <label for="fname">Subscription Plan:</label>
+                </td>
+                <td>
+                    <select name="plan" id="plan">
+                        <option value="annual">Annual</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="weekly">Weekly</option>
+                      </select>
+                </td>
+                <td>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <label for="fname">Your first name:</label>
+                </td>
+                <td>
+                    <input type="text" id="firstName">
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td>
+                    <label for="lname">Your last name:</label>
+                </td>
+                <td>
+                    <input type="text" id="lastName">
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td>
+                    <label for="petname">Your Pet Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="pet">
+                </td>
+            
+            </tr>
+            
+            <tr>
+                <td>
+                    <button type="button" onclick="identifyUser()">Send form</button>
+                    </td>
+                <td>
+                    <button type="button" onclick="trackButtonClicked()">Button clicked</button>
+                    </td>
+            </tr>
+        </table>
+    </div>
+<script src="/HTMLProject.59712999.js"></script></body>
+
+<hr class="dashed">
+
+
+</html>
+  
