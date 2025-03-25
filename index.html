@@ -46,7 +46,45 @@
         const url = "https://cdn.segment.com/v1/projects/UkIhoGsKZxWrrNkMbiwJlUhIv93fBeib/integrations";
         var res="";
         fetch(url).then( res => res.json() ).then((data) => alert(JSON.stringify(data)));*/
+        class session_tracker {
+    constructor() {
+        this.name = 'Session Tracker Plugin';
+        this.type = 'before';
+        this.version = '1';
+    }
+        
+    isLoaded() {
+        return true;
+    }
+    
+    async load(ctx, analytics) {
+        let session_id = localStorage.getItem("session_id") || null;
+        let session_timestamp = localStorage.getItem("session_timestamp") || null;
+        const now = new Date();
 
+        const diff = now - session_timestamp;
+
+        if (session_timestamp == null || diff < (30 * 60 * 1000)) {  // Fixed the extra closing parenthesis here
+        console.log("Setting New Session");
+
+        let session_id = Array.from({ length: 32 }, () => 
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+            [Math.floor(Math.random() * 62)]
+        ).join('');
+
+        localStorage.setItem("session_id", session_id);
+        localStorage.setItem("session_timestamp", now);
+        }
+        return;
+    }
+        
+    async track(ctx) {
+        ctx.event.properties.session_id = localStorage.getItem("session_id");
+        return ctx;
+    }
+    }
+
+    window.analytics.register(new session_tracker());
 
     const manipulateFBEvent = function({ payload, next, integration }) {
         if (
@@ -64,74 +102,55 @@
     next(payload);
     }
 
-        const sendToWebHook = function ({ payload, integration, next }) {
-          fetch('https://fn.segmentapis.com/?b=aENIalhGZGFqRktaZzk1QkhXZURQNjo6b1lCdTJSY2d5SURyQVVXNXhEbk9XOWhFRkhwZk0yQXk=', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload.raw),
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
-        })
-        .then(data => console.log('Success:', data))
-        .catch(error => console.error('Error:', error));
-          next(payload);
-        };
-
-        analytics.addDestinationMiddleware('Facebook Pixel', manipulateFBEvent)
-        //analytics.addSourceMiddleware(sendToWebHook);
-                
-        var newUserId = "" ;
-        newUserId=crypto.randomUUID();
-
-        function identifyUser() {
-            var userId = "";
-
-            userId = newUserId;
+    analytics.addDestinationMiddleware('Facebook Pixel', manipulateFBEvent)
+    //analytics.addSourceMiddleware(sendToWebHook);
             
+    var newUserId = "" ;
+    newUserId=crypto.randomUUID();
 
-            analytics.identify(userId, {
-                email: document.getElementById("email").value,
-                plan: document.getElementById("plan").value,
-                petName:document.getElementById("pet").value,
-                firstName:document.getElementById("firstName").value,
-                lastName:document.getElementById("lastName").value
-            });
+    function identifyUser() {
+        var userId = "";
 
-            analytics.track("New pet registered", {
-                petName:document.getElementById("pet").value
-            });
-            
-            alert("Thanks for sending the details. We will be in touch soon!")
-        }
-
-        function trackButtonClicked() {
+        userId = newUserId;
         
-            analytics.track('Button Clicked', {
-                email: document.getElementById("email").value,
-                plan: document.getElementById("plan").value,
-                utm_campaign: 'gs_sn:-brand-ecpc',
-                ga_client: getClientId(),
-                ga_session: getSessionId(),
-                ga_snumber: getSessionNumber()
-            });
 
-            alert("Button clicked triggered!!")
-        }
+        analytics.identify(userId, {
+            email: document.getElementById("email").value,
+            plan: document.getElementById("plan").value,
+            petName:document.getElementById("pet").value,
+            firstName:document.getElementById("firstName").value,
+            lastName:document.getElementById("lastName").value
+        });
 
-        function trackBuyProduct() {
+        analytics.track("New pet registered", {
+            petName:document.getElementById("pet").value
+        });
         
-            analytics.track('Buy Product', {
-                email: document.getElementById("email").value,
-                productId: "123abc456"
-            });
+        alert("Thanks for sending the details. We will be in touch soon!")
+    }
 
-            alert("Buy product triggered!!")
+    function trackButtonClicked() {
+    
+        analytics.track('Button Clicked', {
+            email: document.getElementById("email").value,
+            plan: document.getElementById("plan").value,
+            utm_campaign: 'gs_sn:-brand-ecpc',
+            ga_client: getClientId(),
+            ga_session: getSessionId(),
+            ga_snumber: getSessionNumber()
+        });
+
+        alert("Button clicked triggered!!")
+    }
+
+    function trackBuyProduct() {
+    
+        analytics.track('Buy Product', {
+            email: document.getElementById("email").value,
+            productId: "123abc456"
+        });
+
+        alert("Buy product triggered!!")
     }
 
     function sendTrack() {
@@ -196,45 +215,7 @@ function getSessionNumber() {
     
   }}
       
-  class session_tracker {
-    constructor() {
-        this.name = 'Session Tracker Plugin';
-        this.type = 'before';
-        this.version = '1';
-    }
-        
-    isLoaded() {
-        return true;
-    }
-    
-    async load(ctx, analytics) {
-        let session_id = localStorage.getItem("session_id") || null;
-        let session_timestamp = localStorage.getItem("session_timestamp") || null;
-        const now = new Date();
-
-        const diff = now - session_timestamp;
-
-        if (session_timestamp == null || diff < (30 * 60 * 1000)) {  // Fixed the extra closing parenthesis here
-        console.log("Setting New Session");
-
-        let session_id = Array.from({ length: 32 }, () => 
-            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-            [Math.floor(Math.random() * 62)]
-        ).join('');
-
-        localStorage.setItem("session_id", session_id);
-        localStorage.setItem("session_timestamp", now);
-        }
-        return;
-    }
-        
-    async track(ctx) {
-        ctx.event.properties.session_id = localStorage.getItem("session_id");
-        return ctx;
-    }
-    }
-
-    await window.analytics.register(new session_tracker());
+  
 
 
     </script>
