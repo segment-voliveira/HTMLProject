@@ -89,7 +89,7 @@
     }
 
     async identify(ctx) {
-        ctx.event.properties.session_id = localStorage.getItem("session_id");
+        ctx.event.context.session_id = localStorage.getItem("session_id");
         return ctx;
     }
     }
