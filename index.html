@@ -82,6 +82,16 @@
         ctx.event.properties.session_id = localStorage.getItem("session_id");
         return ctx;
     }
+
+    async page(ctx) {
+        ctx.event.properties.session_id = localStorage.getItem("session_id");
+        return ctx;
+    }
+
+    async identify(ctx) {
+        ctx.event.properties.session_id = localStorage.getItem("session_id");
+        return ctx;
+    }
     }
 
     window.analytics.register(new session_tracker());
