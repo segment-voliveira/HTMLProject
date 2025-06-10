@@ -56,6 +56,7 @@
     async load(ctx, analytics) {
         let session_id = localStorage.getItem("session_id") || null;
         let session_timestamp = localStorage.getItem("session_timestamp") || null;
+        let fbp = getFbp();
         const now = new Date();
 
         const diff = now - session_timestamp;
@@ -81,6 +82,7 @@
 
     async page(ctx) {
         ctx.event.properties.session_id = localStorage.getItem("session_id");
+        ctx.event.properties.fbp = fbp;
         return ctx;
     }
 
